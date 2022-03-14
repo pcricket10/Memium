@@ -23,7 +23,6 @@ module.exports = {
         }
       },
       liked: {
-        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {
