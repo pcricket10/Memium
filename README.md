@@ -5,13 +5,14 @@ Use this project skeleton as a starting point for structuring your app. Things t
 * You may find yourself wanting to use javascript -- js files can be added in `public/javascripts` and should be appended to the Pug templates as needed
 * CSS files can go in `public/stylesheets` and also will need to be added to Pug templates
 
-Roger testing test_roger branch
 
-Something
+## PULL REQUESTS
 
+Do the changes in your own branch\
+Add, push and commit from the branch\
+on github.com submit new pull request\
 
-Main merge test
-Github test
+Another member of the team reviews and accepts the new pull request on their end\
+Click merge after being reviewed on github.com\
 
-Another test Roger
-Another test Roger 2
+Switch branch to main and pull.\
