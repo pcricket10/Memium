@@ -15,7 +15,11 @@ Click merge after being reviewed on github.com\
 
 Switch branch to main and pull.\
 
-Creating User with password: 
+Creating User with password:
 CREATE USER memeium_app WITH PASSWORD 'password' createdb;
-Creating database with owner: 
-CREATE DATABASE memeium_dev with OWNER memeium_app; 
+Creating database with owner:
+CREATE DATABASE memeium_dev with OWNER memeium_app;
+
+copy/paste data from .env.example to .env
+
+npx dotenv sequelize db:create
