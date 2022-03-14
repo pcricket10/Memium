@@ -9,12 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       users_id: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users'
+        }
       },
       meme_id: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Memes'
+        }
       },
       liked: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {
