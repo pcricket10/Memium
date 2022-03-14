@@ -1,6 +1,6 @@
-#!/usr/bin/env mode 
+#!/usr/bin/env node
 
-const port = process.env.PORT || '8000';
+const port = process.env.PORT || '8080';
 
 const app = require('../app');
 
