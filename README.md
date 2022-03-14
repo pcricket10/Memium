@@ -18,4 +18,4 @@ Switch branch to main and pull.\
 Creating User with password: 
 CREATE USER memeium_app WITH PASSWORD 'password' createdb;
 Creating database with owner: 
-CREATE DATABASE memeium_app_dev with OWNER memeium_app; -->
+CREATE DATABASE memeium_app_dev with OWNER memeium_app; 
