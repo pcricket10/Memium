@@ -14,3 +14,8 @@ Another member of the team reviews and accepts the new pull request on their end
 Click merge after being reviewed on github.com\
 
 Switch branch to main and pull.\
+
+Creating User with password: 
+CREATE USER memeium_app WITH PASSWORD 'password' createdb;
+Creating database with owner: 
+CREATE DATABASE memeium_app_dev with OWNER memeium_app; -->
