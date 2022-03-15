@@ -5,4 +5,11 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+    nav(class = 'navbar')
+      a(class ='memium-logo' href='/') Memeium
+      a(class ='create-meme' href='/meme/create') Create Meme
+      a(class='login-button' href='/user/login') Login
+      a(class='register-button' href='/user/register') Register
+      //- a(class='about' href='/about')
+      //-placeholder
     block content
