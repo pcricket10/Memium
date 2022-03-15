@@ -3,12 +3,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const { sequelize } = require('./db/models');
+// const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const memeRouter = require('./routes/meme');
+// const usersRouter = require('./routes/users');
+// const memeRouter = require('./routes/meme');
 
 
 
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
-const store = new SequelizeStore({ db: sequelize });
+// const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
@@ -40,8 +40,8 @@ app.use(
 store.sync();
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/meme', memeRouter);
+// app.use('/users', usersRouter);
+// app.use('/meme', memeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

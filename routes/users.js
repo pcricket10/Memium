@@ -1,12 +1,13 @@
 const express = require('express');
+const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const csrf = require('csurf');
-const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
+const db = require('../db/models');
 const bcrypt = require('bcryptjs');
 
 
-const router = express.Router();
+
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
