@@ -16,7 +16,7 @@ Click merge after being reviewed on github.com\
 Switch branch to main and pull.\
 
 Creating User with password:
-CREATE USER memeium_app WITH PASSWORD 'password' createdb;
+CREATE USER memeium_app WITH SUPERUSER PASSWORD 'password' createdb;
 Creating database with owner:
 CREATE DATABASE memeium_dev with OWNER memeium_app;
 
