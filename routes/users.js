@@ -98,7 +98,7 @@ router.post('/signup', csrfProtection, userValidators,
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('singup', {
+      res.render('signup', {
         title: 'Signup',
         user,
         errors,
@@ -107,46 +107,53 @@ router.post('/signup', csrfProtection, userValidators,
     }
   }));
 
-  router.get('/login', csrfProtection, (req, res) => {
+router.get('/login', csrfProtection, (req, res) => {
+  res.render('login', {
+    title: 'Login',
+    csrfToken: req.csrfToken(),
+  });
+});
+
+const loginValidators = [
+  check('emailAddress')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Email Address'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Password'),
+];
+
+router.post('/login', csrfProtection, loginValidators,
+  asyncHandler(async (req, res) => {
+    const {
+      email,
+      password,
+    } = req.body;
+
+    let errors = [];
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      const user = await db.User.findOne({ where: { emailAddress } });
+      if (user !== null) {
+        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+        if (passwordMatch) {
+          return res.redirect('/');
+        }
+      }
+      errors.push('Invalid email address or password');
+
+    } else {
+      errors = validatorErrors.array().map((error) => error.msg);
+    }
+
     res.render('login', {
       title: 'Login',
+      email,
+      errors,
       csrfToken: req.csrfToken(),
     });
-  });
-  
-  const loginValidators = [
-    check('emailAddress')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Email Address'),
-    check('password')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Password'),
-  ];
-  
-  router.post('/login', csrfProtection, loginValidators,
-    asyncHandler(async (req, res) => {
-      const {
-        email,
-        password,
-      } = req.body;
-  
-      let errors = [];
-      const validatorErrors = validationResult(req);
-  
-      if (validatorErrors.isEmpty()) {
-       await user.save();
-       res.redirect('/');
-      } else {
-        errors = validatorErrors.array().map((error) => error.msg);
-      }
-  
-      res.render('login', {
-        title: 'Login',
-        email,
-        errors,
-        csrfToken: req.csrfToken(),
-      });
-    }));
+  }));
 
 
 module.exports = router;
