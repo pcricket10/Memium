@@ -33,7 +33,7 @@ const userValidators = [
     .withMessage('Please provide a value for Last Name')
     .isLength({ max: 50 })
     .withMessage('Last Name must not be more than 50 characters long'),
-  check('emailAddress')
+  check('email')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Email Address')
     .isLength({ max: 50 })
@@ -63,14 +63,14 @@ const userValidators = [
 router.post('/signup', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
-      emailAddress,
+      email,
       firstName,
       lastName,
       password,
     } = req.body;
 
     const user = db.User.build({
-      emailAddress,
+      email,
       firstName,
       lastName,
     });
