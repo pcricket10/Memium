@@ -26,8 +26,6 @@ router.get('/signup', csrfProtection, (req, res) => {
 });
 
 
-
-
 const userValidators = [
   check('firstName')
     .exists({ checkFalsy: true })
