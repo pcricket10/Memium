@@ -19,6 +19,7 @@ Creating User with password:
 CREATE USER memeium_app WITH SUPERUSER PASSWORD 'password' createdb;
 Creating database with owner:
 CREATE DATABASE memeium_dev with OWNER memeium_app;
+SESSION_SECRET=alex-phil-austin-roger
 
 copy/paste data from .env.example to .env
 
