@@ -1,3 +1,10 @@
 extends layout
 block content
-    h1= 'Hello alex philip'
+    h1= 'Create New Meme'
+    form(action="/meme/create" method="post")
+        input(type="hidden" name='_csrf' value=csrfToken)
+        label(for="name") Meme Description:
+        input(type="text" name="name" required)
+        label(for="url") Meme Link:
+        input(type="text" name="memeLink")
+        button Create Meme
