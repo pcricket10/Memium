@@ -12,4 +12,12 @@ html
       a(class='register-button' href='/signup') Register
       //- a(class='about' href='/about')
       //-placeholder
+      if locals.authenticated
+        span(class='navbar-text px-4') Welcome #{user.firstName}!
+        form(class='form-inline pr-4' action='/logout' method='post')
+          button(class='btn btn-sm btn-warning' type='submit') Logout
+      else
+        span(class='navbar-text px-4')
+          a(class='btn btn-sm btn-dark mr-2' href='/login') Login
+          a(class='btn btn-sm btn-dark' href='/signup') Register
     block content

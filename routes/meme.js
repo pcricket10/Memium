@@ -4,9 +4,10 @@ const csrf = require('csurf')
 const { csrfProtection, asyncHandler } = require('./utils');
 const router = express.Router();
 const { Meme } = require('../db/models');
+const { requireAuth } = require('../auth');
 
 /* GET meme page. */
-router.get('/create', csrfProtection, function(req, res, next) {
+router.get('/create', requireAuth, csrfProtection, function(req, res, next) {
   res.render('create-meme', { title: 'Memeium - Create Meme' });
 });
 

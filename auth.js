@@ -6,6 +6,18 @@ const loginUser = (req, res, user) => {
   };
 };
 
+const logoutUser = (req, res) => {
+  delete req.session.auth;
+};
+
+const requireAuth = (req, res, next) => {
+  if (!res.locals.authenticated) {
+    return res.redirect('/user/login');
+  }
+  return next();
+};
+
+
 const restoreUser = async (req, res, next) => {
 
   console.log(req.session);
@@ -30,8 +42,9 @@ const restoreUser = async (req, res, next) => {
     next();
   }
 };
-
 module.exports = {
   loginUser,
+  logoutUser,
+  requireAuth,
   restoreUser,
 };
