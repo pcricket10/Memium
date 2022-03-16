@@ -27,12 +27,12 @@ router.get('/signup', csrfProtection, (req, res) => {
 
 
 const userValidators = [
-  check('firstName')
+  check('first_name')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for First Name')
     .isLength({ max: 50 })
     .withMessage('First Name must not be more than 50 characters long'),
-  check('lastName')
+  check('last_name')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Last Name')
     .isLength({ max: 50 })
@@ -77,22 +77,22 @@ router.post('/signup', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
       email,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       password,
     } = req.body;
 
     const user = db.User.build({
       email,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
     });
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
-      user.hashedPassword = hashedPassword;
+      user.password = hashedPassword;
       await user.save();
       loginUser(req, res, user);
       res.redirect('/');
@@ -115,7 +115,7 @@ router.get('/login', csrfProtection, (req, res) => {
 });
 
 const loginValidators = [
-  check('emailAddress')
+  check('email')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Email Address'),
   check('password')
@@ -129,25 +129,23 @@ router.post('/login', csrfProtection, loginValidators,
       email,
       password,
     } = req.body;
-
     let errors = [];
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      const user = await db.User.findOne({ where: { emailAddress } });
+      const user = await db.User.findOne({ where: { email } });
       if (user !== null) {
-        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+        const passwordMatch = await bcrypt.compare(password, user.password.toString());
         if (passwordMatch) {
           loginUser(req, res, user);
           return res.redirect('/');
         }
       }
+      console.log('============>>>>>>>>>> 144');
       errors.push('Invalid email address or password');
-
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
-
     res.render('login', {
       title: 'Login',
       email,

@@ -11,4 +11,11 @@ router.get('/create', requireAuth, csrfProtection, function(req, res, next) {
   res.render('create-meme', { title: 'Memeium - Create Meme' });
 });
 
+router.get('/', requireAuth, asyncHandler(async (req, res) => {
+
+}));
+
+
+
+
 module.exports = router;

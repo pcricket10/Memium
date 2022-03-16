@@ -18,12 +18,13 @@ const app = express();
 
 const store = new SequelizeStore({ db: sequelize });
 app.use(session({
-    secret: 'superSecret',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
   })
 );
+store.sync()
 app.use(restoreUser);
 
 app.set('view engine', 'pug');
