@@ -9,8 +9,12 @@ block content
     +field('First Name', 'first_name', user.first_name)
     +field('Last Name', 'last_name', user.last_name)
     +field('Email Address', 'email', user.email)
-    +field('Password', 'password', user.password, 'password')
-    +field('Confirm Password', 'confirmPassword', '', 'password')
+    //- +field('Password', 'password', user.password, 'password')
+    label(for="password") Password 
+    input(type="password" name='password' required)
+    //- +field('Confirm Password', 'confirmPassword', '', 'password')
+    label(for="confirmPassword")  Confirm Password 
+    input(type="password" name='confirmPassword' required)
     div(class='py-4')
       button(type='submit' class='btn btn-signup') Signup
       a(href='/' class='btn btn-cancel') Cancel
