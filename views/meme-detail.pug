@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 #{meme.name}
+    img(src=meme.meme_url)
+    div(class='delete')
+        a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme

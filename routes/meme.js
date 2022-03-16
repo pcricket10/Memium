@@ -16,6 +16,7 @@ router.get('/meme/create', requireAuth, csrfProtection, function (req, res) {
   });
 });
 
+
 // router.get('/', requireAuth, asyncHandler(async (req, res) => {
 // }));
 
@@ -47,6 +48,20 @@ router.post('/meme/create', requireAuth, csrfProtection, asyncHandler(async (req
   }
 
 }));
+
+router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
+  const memeId = parseInt(req.params.id);
+  const meme = await db.Meme.findByPk(memeId);     //, { include: ['attractions'] });
+  res.render('meme-detail', { meme });
+}));
+
+router.post('/meme/delete/:id(\\d+)', csrfProtection,
+  asyncHandler(async (req, res) => {
+    const memeId = parseInt(req.params.id, 10);
+    const meme = await db.Meme.findByPk(memeId);
+    await meme.destroy();
+    res.redirect("/");
+  }));
 
 
 
