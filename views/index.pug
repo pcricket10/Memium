@@ -11,4 +11,5 @@ block content
   div
     each meme in memes
       h2 #{meme.name}
-      img(src=meme.meme_url)
+      a(href=`/meme/${meme.id}`)
+        img(src=meme.meme_url)
