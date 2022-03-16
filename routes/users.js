@@ -141,7 +141,6 @@ router.post('/login', csrfProtection, loginValidators,
           return res.redirect('/');
         }
       }
-      console.log('============>>>>>>>>>> 144');
       errors.push('Invalid email address or password');
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
