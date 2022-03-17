@@ -39,6 +39,7 @@ li {
 
 body{
   margin: 100px 0 0 0;
+  background-color: lightgray
 
 }
 
@@ -63,4 +64,15 @@ h1{
     color:rgb(12, 120, 163);
     display:flex;
     justify-content: center;
+}
+
+img.hover:hover{
+  /* width:92.5%; */
+  transform: scale(1.05);
+}
+img.hover{
+  transition: transform .2s;
+  width:90%;
+  border:2px solid white;
+  box-shadow: 0 0 20px black;
 }
