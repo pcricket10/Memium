@@ -1,7 +1,10 @@
 extends layout
-
+append head
+    link(rel="stylesheet" href="/stylesheets/meme-detail.css")
 block content
-    h1 #{meme.name}
-    img(src=meme.meme_url)
-    div(class='delete')
-        a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
+    div
+        h1 #{meme.name}
+        img(class='memeImg' src=meme.meme_url)
+        div(class='delete')
+            button 
+                a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
