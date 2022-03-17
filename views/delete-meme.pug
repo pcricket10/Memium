@@ -7,4 +7,5 @@ block content
         form(action=`/meme/delete/${meme}` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
             button(class='deleteButton' type='submit') Delete Meme
-            a(class='deleteButton1' href=`/meme/delete/${meme.id}` role='button') Cancel
+            a(class='deleteButton1' href=`/meme/delete/${meme.id}` role='button') 
+            Button Cancel

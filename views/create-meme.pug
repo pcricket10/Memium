@@ -2,12 +2,13 @@ extends layout
 append head
     link(rel="stylesheet" href="/stylesheets/create-meme.css")
 block content
-    h1= 'Create New Meme'
     div(class='page')
+        img(id="memeium-logo" src='/images/Memium_BonW.png')
         form(class='global' action="/meme/create" method="post")
+            h1= 'Create A New Meme'   
             input(type="hidden" name='_csrf' value=csrfToken)
             label(class="namelabel" for="name") Meme Description:
-            input(class="nameinput" type="text" name="name" value= meme.name required)
+            input(type="text" name="name" value= meme.name required)
             label(class="linklabel" for="meme_url") Meme Link:
-            input(class="urlinput" type="text" name="meme_url" value= meme.meme_url)
+            input(type="text" name="meme_url" value= meme.meme_url)
             button(class="createbutton" type='submit' class='btn') Create Meme
