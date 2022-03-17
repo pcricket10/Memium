@@ -6,20 +6,18 @@ html
         link(rel='stylesheet' href='/stylesheets/navbar.css')
   body
     navbar(class= 'navbar')
-      ul(class='navbar')
-        li(class='navbar-left')
-          a(class='memium-logo' href='/') Memeium
-        li(class='navbar-right')
-          a(class='create-meme navbar-create navbar-logins' href='/meme/create') Create Meme
+      div(class= 'navbar-left')
+        a(class='memium-logo' href="/"): img(id="memium-logo" src='/images/Memium_WonB_trimmed.png')
+      div(class= 'navbar-right')
+        a(class='create-meme navbar-create navbar-logins' href='/meme/create')
+          button(class=('btn-create')) Create Meme
         if locals.authenticated
-          li(class='navbar-right')
-            span(class='navbar-text') Welcome #{user.first_name}!
-          li(class='navbar-right')
+          span(class='navbar-text') Welcome #{user.first_name}!
           form(class='btn nav-logout navbar-logins' action='/logout' method='post')
-            button(type='submit') Logout
+            button(class='btn-logout' type='submit') Logout
         else
-          li(class='navbar-right')
-            a(class='btn nav-login navbar-logins' href='/login') Login
-          li(class='navbar-right')
-            a(class='btn nav-signup navbar-logins' href='/signup') Signup
+          a(class='btn nav-login navbar-logins' href='/login')
+            button Login
+          a(class='btn nav-signup navbar-logins' href='/signup')
+            button(class='btn-signup') Signup
     block content

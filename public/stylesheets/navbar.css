@@ -7,52 +7,27 @@
   background: #000;
   padding: 15px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
+.navbar-right {
+  display: flex;
+  gap: 10px;
+}
+
+#memium-logo{
+  max-width: 20%;
 }
 
 li {
   margin-right: 2rem;
 }
 
-.navbar-left {
-  display: flex;
-  justify-content: flex-start
-}
-
-.navbar-right {
-  display: flex;
-  justify-content: flex-end
-}
-
-.memium-logo {
-  display: flex;
-}
-
-.navbar-logins {
-  display: flex;
-}
-
-.navbar-create {
-  color: yellow;
-  display: flex;
-}
-
-.nav-logout {
-  color: red;
-  display: flex;
-}
-
-.nav-login {
-  color: green;
-  display: flex;
-  justify-content: flex-end;
-}
-
-
-.nav-signup {
-  color: aqua;
-  display: flex;
-  justify-content: flex-end;
+btn {
+  font-size: 1rem;
+  background-color: white;
 }
