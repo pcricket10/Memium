@@ -8,13 +8,13 @@ block content
   +validationErrorSummary(errors)
   img(id="memeium-logo" src='/images/Memium_BonW.png')
   form(class='global' action='/login' method='post')
-    h1 Sign in 
+    h1 Log in
     h2 to continue to Memium
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Email Address', 'email', email)
     label(for="password") Password
     input(type="password" name='password' required)
-    div(class='py-4')
+    div(class='buttons')
       button(type='submit' class='btn-login') Login
       a(href='/' class='btn-cancel') Cancel
     div

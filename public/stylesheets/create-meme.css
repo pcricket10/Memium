@@ -1,64 +1,64 @@
-/* h1{
-    font-family: "Proxima Nova", "helvetica neue", "helvetica", "arial", sans-serif;
-    color:rgb(12, 120, 163);
-    display:flex;
-    justify-content: center;
-} */
-
-/* .page{
-    background-color:lightgray;
-} */
-
-/* .formclass{
+h1 {
+    color: black;
     display: flex;
-    flex-direction: column;
-    padding: 6px 10px 6px 0px;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 50px;
-} */
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
 
+#memeium-logo {
+    display: block;
+    width: 200px;
+    margin:auto;
+    margin-top: 125px;
+
+}
 .namelabel{
-    padding-bottom: 20px;
-    color:rgb(190, 136, 35);
-    font-size: 26px;
-    font-weight: bold;
+    /* padding-bottom: 5px; */
+    color:black;
+    font-size: 20px;
+    /* font-weight: bold; */
 
 }
 
 .linklabel{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    color:rgb(190, 136, 35);
-    font-size: 26px;
-    font-weight: bold;
+    /* padding-top: 50px; */
+    /* padding-bottom: 5px; */
+    color: black;
+    font-size: 20px;
+    /* font-weight:100em; */
 }
 
-/* .createbutton{
+.createbutton{
     background-color: #FFFFFF;
-    color:rgb(190, 136, 35);
+    /* color:rgb(190, 136, 35); */
     font-weight: bold;
-    border: 3px solid;
-    height: 50px;
-    width: 70px;
+    border: 2px solid;
+    height: 30px;
+    width: 120px;
     box-sizing: border-box;
-    vertical-align: top;
-    border-radius: 10px;
+    /* vertical-align: top; */
+    border-radius:8px;
     font-size: 16px;
+    margin-top: 20px
+}
+
+input{
+    border: 2px solid black;
+    height: 20px;
+    width: 200px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+/* .urlinput{
+    border: 2px solid rgb(190, 136, 35);
+    height: 33px;
+    width: 200px;
 } */
-
-.nameinput{
-    border: 2px solid rgb(190, 136, 35);
-    height: 33px;
-    width: 200px;
-}
-
-.urlinput{
-    border: 2px solid rgb(190, 136, 35);
-    height: 33px;
-    width: 200px;
-}
-/* button:hover {
+button:hover {
     cursor: pointer;
     color: #7f7f7f;
-} */
+}
+
