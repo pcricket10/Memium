@@ -1,9 +1,10 @@
 extends layout
-
+append head
+    link(rel="stylesheet" href="/stylesheets/create-meme.css")
 block content
     h1= 'Create New Meme'
     div(class='page')
-        form(class="formclass" action="/meme/create" method="post")
+        form(class='global' action="/meme/create" method="post")
             input(type="hidden" name='_csrf' value=csrfToken)
             label(class="namelabel" for="name") Meme Description:
             input(class="nameinput" type="text" name="name" value= meme.name required)

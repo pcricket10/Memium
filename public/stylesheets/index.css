@@ -1,8 +1,4 @@
-h1{
-  /* color:blue; */
-  font-family: sans-serif;
-  text-align: center;
-}
+
 h2{
   font-family:Georgia, 'Times New Roman', Times, serif;
   text-align: center;
@@ -15,20 +11,10 @@ h2{
   flex-direction: row;
   justify-content: center;
   margin:20px;
-  background-color: lightgray
+
 }
 .meme{
   width:300px;
   padding:10px;
   justify-content: center;
-}
-img:hover{
-  /* width:92.5%; */
-  transform: scale(1.05);
-}
-img{
-  transition: transform .2s;
-  width:90%;
-  border:2px solid white;
-  box-shadow: 0 0 20px black;
 }

@@ -1,22 +1,22 @@
-h1{
+/* h1{
     font-family: "Proxima Nova", "helvetica neue", "helvetica", "arial", sans-serif;
     color:rgb(12, 120, 163);
     display:flex;
     justify-content: center;
-}
+} */
 
 /* .page{
     background-color:lightgray;
 } */
 
-.formclass{
+/* .formclass{
     display: flex;
     flex-direction: column;
     padding: 6px 10px 6px 0px;
     align-items: center;
     justify-content: space-evenly;
     padding: 50px;
-}
+} */
 
 .namelabel{
     padding-bottom: 20px;
@@ -34,7 +34,7 @@ h1{
     font-weight: bold;
 }
 
-.createbutton{
+/* .createbutton{
     background-color: #FFFFFF;
     color:rgb(190, 136, 35);
     font-weight: bold;
@@ -45,7 +45,7 @@ h1{
     vertical-align: top;
     border-radius: 10px;
     font-size: 16px;
-}
+} */
 
 .nameinput{
     border: 2px solid rgb(190, 136, 35);
@@ -58,7 +58,7 @@ h1{
     height: 33px;
     width: 200px;
 }
-button:hover {
+/* button:hover {
     cursor: pointer;
     color: #7f7f7f;
-}
+} */
