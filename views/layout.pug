@@ -3,7 +3,7 @@ html
   head
       block head
         title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/navbar.css')
+        link(rel='stylesheet' href='/stylesheets/global.css')
   body
     navbar(class= 'navbar')
       div(class= 'navbar-left')
@@ -13,11 +13,11 @@ html
           button(class=('btn-create')) Create Meme
         if locals.authenticated
           span(class='navbar-text') Welcome #{user.first_name}!
-          form(class='btn nav-logout navbar-logins' action='/logout' method='post')
+          form(class='btn-nav nav-logout navbar-logins' action='/logout' method='post')
             button(class='btn-logout' type='submit') Logout
         else
-          a(class='btn nav-login navbar-logins' href='/login')
+          a(class='btn-nav nav-login navbar-logins' href='/login')
             button Login
-          a(class='btn nav-signup navbar-logins' href='/signup')
+          a(class='btn-nav nav-signup navbar-logins' href='/signup')
             button(class='btn-signup') Signup
     block content
