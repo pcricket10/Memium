@@ -3,18 +3,23 @@ html
   head
       block head
         title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/index.css')
+
+        link(rel='stylesheet' href='/stylesheets/global.css')
         link(rel="stylesheet" href="/stylesheets/create-meme.css")
   body
-    nav(class = 'navbar')
-      a(class ='memium-logo' href='/') Memeium
-      a(class ='create-meme' href='/meme/create') Create Meme
-      if locals.authenticated
-        span(class='navbar-text') Welcome #{user.first_name}!
-        form(class='form-inline' action='/logout' method='post')
-          button(class='btn btn-sm btn-warning' type='submit') Logout
-      else
-        span(class='navbar-text')
-          a(class='btn btn-sm btn-dark' href='/login') Login
-          a(class='btn btn-sm btn-dark' href='/signup') Signup
+    navbar(class= 'navbar')
+      div(class= 'navbar-left')
+        a(class='memium-logo' href="/"): img(id="memium-logo" src='/images/Memium_WonB_trimmed.png')
+      div(class= 'navbar-right')
+        a(class='create-meme navbar-create navbar-logins' href='/meme/create')
+          button(class=('btn-create')) Create Meme
+        if locals.authenticated
+          span(class='navbar-text') Welcome #{user.first_name}!
+          form(class='btn-nav nav-logout navbar-logins' action='/logout' method='post')
+            button(class='btn-logout' type='submit') Logout
+        else
+          a(class='btn-nav nav-login navbar-logins' href='/login')
+            button Login
+          a(class='btn-nav nav-signup navbar-logins' href='/signup')
+            button(class='btn-signup') Signup
     block content

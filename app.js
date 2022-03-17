@@ -13,8 +13,8 @@ const { restoreUser } = require('./auth');
 const usersRouter = require('./routes/users');
 const memeRouter = require('./routes/meme');
 
-const app = express();
 
+const app = express();
 
 const store = new SequelizeStore({ db: sequelize });
 app.use(session({
