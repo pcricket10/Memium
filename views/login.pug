@@ -6,7 +6,8 @@ include utils.pug
 
 block content
   +validationErrorSummary(errors)
-  h1 Login
+  h1 Sign in 
+  h2 to continue to Memeium
   form(action='/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Email Address', 'email', email)
