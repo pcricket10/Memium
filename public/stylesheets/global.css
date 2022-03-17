@@ -24,6 +24,9 @@
 #memium-logo{
   max-width: 20%;
 }
+.navbar-text{
+  color:white
+}
 
 li {
   margin-right: 2rem;
@@ -39,6 +42,25 @@ body{
 
 }
 
-form{
+form.global {
   margin-left:5%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  text-align: center;
+  /* left:20%; */
+  margin: auto;
+  padding: 10px;
+  background-color: lightskyblue;
+  border-radius: 8px;
+  width: 500px;
+  /* position: relative; */
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif
+  }
+h1{
+    font-family: "Proxima Nova", "helvetica neue", "helvetica", "arial", sans-serif;
+    color:rgb(12, 120, 163);
+    display:flex;
+    justify-content: center;
 }

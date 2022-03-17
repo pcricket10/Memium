@@ -7,10 +7,10 @@ include utils.pug
 block content
   +validationErrorSummary(errors)
   h1 Login
-  form(action='/login' method='post')
+  form(class='global' action='/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Email Address', 'email', email)
-    label(for="password") Password 
+    label(for="password") Password
     input(type="password" name='password' required)
     div(class='py-4')
       button(type='submit' class='btn-login') Login
