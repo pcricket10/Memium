@@ -5,8 +5,11 @@ include utils
   link(rel="stylesheet" href="/stylesheets/signup.css")
 block content
   +validationErrorSummary(errors)
-  h1 Create your Account
+
+  img(id="memeium-logo" src='/images/Memium_BonW.png')
   form(class='global' action='/signup' method='post')
+    h1 Create your Account
+    h2 to continue to Memium
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('First Name', 'first_name', user.first_name)
     +field('Last Name', 'last_name', user.last_name)
