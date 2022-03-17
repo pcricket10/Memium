@@ -2,8 +2,10 @@ extends layout
 
 include utils
 
+  link(rel="stylesheet" href="/stylesheets/signup.css")
 block content
   +validationErrorSummary(errors)
+  h1 Create your Account
   form(action='/signup' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('First Name', 'first_name', user.first_name)
@@ -16,7 +18,7 @@ block content
     label(for="confirmPassword")  Confirm Password 
     input(type="password" name='confirmPassword' required)
     div(class='py-4')
-      button(type='submit' class='btn btn-signup') Signup
-      a(href='/' class='btn btn-cancel') Cancel
-  div
-    p: a(href='/login') Already have an account?
+      button(type='submit' class='btn-signup') Signup
+      a(href='/' class='btn-cancel') Cancel
+    div
+      p: a(href='/login') Already have an account?

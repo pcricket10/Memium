@@ -24,3 +24,5 @@ SESSION_SECRET=alex-phil-austin-roger
 copy/paste data from .env.example to .env
 
 npx dotenv sequelize db:create
+
+

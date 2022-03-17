@@ -1,10 +1,12 @@
 extends layout
+
 block content
     h1= 'Create New Meme'
-    form(action="/meme/create" method="post")
-        input(type="hidden" name='_csrf' value=csrfToken)
-        label(for="name") Meme Description:
-        input(type="text" name="name" value= meme.name required)
-        label(for="meme_url") Meme Link:
-        input(type="text" name="meme_url" value= meme.meme_url)
-        button(type='submit' class='btn') Create Meme
+    div(class='page')
+        form(class="formclass" action="/meme/create" method="post")
+            input(type="hidden" name='_csrf' value=csrfToken)
+            label(class="namelabel" for="name") Meme Description:
+            input(class="nameinput" type="text" name="name" value= meme.name required)
+            label(class="linklabel" for="meme_url") Meme Link:
+            input(class="urlinput" type="text" name="meme_url" value= meme.meme_url)
+            button(class="createbutton" type='submit' class='btn') Create Meme
