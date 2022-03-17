@@ -55,13 +55,14 @@ router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
   res.render('meme-detail', { meme });
 }));
 
-router.get('/meme/delete/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
+router.get('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
+asyncHandler(async(req, res) => {
   const meme = parseInt(req.params.id);
   res.render('delete-meme', { meme, csrfToken: req.csrfToken() });
 
 }));
 
-router.post('/meme/delete/:id(\\d+)', csrfProtection,
+router.post('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
   asyncHandler(async (req, res) => {
     const memeId = parseInt(req.params.id, 10);
     const meme = await db.Meme.findByPk(memeId);
