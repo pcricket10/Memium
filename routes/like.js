@@ -6,10 +6,16 @@ const router = express.Router();
 const db = require('../db/models');
 const { requireAuth } = require('../auth');
 
-// router.post('/,meme/:id(\\d+)' requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+// router.post('/meme/:id(\\d+/like/add)', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
 //     const { userId } = req.session.auth;
-//     const { memeId } = parseInt(req.params.id);
-//     console.log(userId, memeId, "------!!!!!!!!!!!--------");
+//     const  memeId  = parseInt(req.params.id);
+
+//     const meme = await db.Meme.findByPk(memeId { include: })
+
+//     const like = await db.Like.build({
+//         userId,
+//         memeId,
+//     })
 //     const { name,
 //       meme_url
 //     } = req.body
@@ -35,7 +41,7 @@ const { requireAuth } = require('../auth');
 //     }
 //   }));
 
-router.patch('/meme/:id(\\d+)/toggleLike'), asyncHandler(async (req, res) => {
+router.patch('/meme/:id(\\d+/upLike)', asyncHandler(async (req, res) => {
     console.log('like-----------------!!!!!!!!!!!!!!!!!!')
     const { userId } = req.session.auth;
     const { memeId } = parseInt(req.params.id);
@@ -50,12 +56,11 @@ router.patch('/meme/:id(\\d+)/toggleLike'), asyncHandler(async (req, res) => {
     await meme.save();
     if (meme) {
         res.json({ msg: "Meme liked!!!" });
-    }
-    else {
+    } else {
         res.json({ msg: "Meh Meme" });
     }
 
-});
+}));
 
 
 
