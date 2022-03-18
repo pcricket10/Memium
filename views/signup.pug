@@ -6,8 +6,6 @@ include utils
 block content
   +validationErrorSummary(errors)
 
-  a(class='btn-nav nav-demo_user navbar-logins' href='/login/demo')
-    button Demo User
   img(id="memeium-logo" src='/images/Memium_BonW.png')
   form(class='global' action='/signup' method='post')
     h1 Create your Account
@@ -16,14 +14,15 @@ block content
     +field('First Name', 'first_name', user.first_name)
     +field('Last Name', 'last_name', user.last_name)
     +field('Email Address', 'email', user.email)
-    //- +field('Password', 'password', user.password, 'password')
     label(for="password") Password
     input(type="password" name='password' required)
-    //- +field('Confirm Password', 'confirmPassword', '', 'password')
     label(for="confirmPassword")  Confirm Password
     input(type="password" name='confirmPassword' required)
     div(class='buttons')
-      button(type='submit' class='btn-signup') Signup
-      a(href='/' class='btn-cancel') Cancel
-    div
+      button(type='submit' class='btn-signup btn-style') Signup
+      a(href='/' class='btn-cancel btn-style') Cancel
+    div(class='buttons')
       p: a(href='/login') Already have an account?
+  div(class="div-demo_user")
+    a(class='demo_user' href='/login/demo')
+      button(class="btn-demo_user btn-style") Demo User
