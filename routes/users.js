@@ -153,22 +153,22 @@ router.post('/login', csrfProtection, loginValidators,
     });
   }));
 
-  router.get("/login/demo", async(req, res) => {
-    function randomUser(min, max) {
-      var num = Math.floor(Math.random() * (max - min + 1)) + min;
-      return (num === 1 && num === 2) ? randomUser(min, max) : num;
-    }
-    let user = {
-      id: randomUser(1, 2)
-    }
-    loginUser(req, res, user);
-    res.redirect("/");
+router.get("/login/demo", async (req, res) => {
+  function randomUser(min, max) {
+    var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return (num === 1 && num === 2) ? randomUser(min, max) : num;
+  }
+  let user = {
+    id: randomUser(1, 2)
+  }
+  loginUser(req, res, user);
+  res.redirect("/");
 })
 
-  router.post('/logout', (req, res) => {
-    logoutUser(req, res);
-    res.redirect('/login');
-  });
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+  res.redirect('/login');
+});
 
 
 module.exports = router;
