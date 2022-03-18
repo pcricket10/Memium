@@ -12,7 +12,7 @@ const indexRouter = require('./routes/index');
 const { restoreUser } = require('./auth');
 const usersRouter = require('./routes/users');
 const memeRouter = require('./routes/meme');
-
+const likeRouter = require('./routes/like');
 
 const app = express();
 
@@ -41,6 +41,7 @@ app.use(usersRouter);
 // set up session middleware
 // app.use('/users', usersRouter);
 app.use(memeRouter);
+app.use(likeRouter);
 // app.use('/meme', memeRouter);
 
 // catch 404 and forward to error handler
