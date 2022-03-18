@@ -7,6 +7,15 @@ const db = require('../db/models');
 const { requireAuth } = require('../auth');
 
 /* GET meme page. */
+
+const checkPermissions = (meme, currentUser) => {
+  if (meme.user_id !== currentUser.id) {
+    const err = new Error('Cannot delete a Meme that does not belong to you.');
+    err.status = 403; // Forbidden
+    throw err;
+  }
+};
+
 router.get('/meme/create', requireAuth, csrfProtection, function (req, res) {
   const meme = db.Meme.build()
   res.render('create-meme', {
@@ -57,17 +66,24 @@ router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
 asyncHandler(async(req, res) => {
-  const meme = parseInt(req.params.id);
-  res.render('delete-meme', { meme, csrfToken: req.csrfToken() });
-
+  const memeId = parseInt(req.params.id);
+  const meme = await db.Meme.findByPk(memeId);
+  checkPermissions(meme, res.locals.user);
+  res.render('delete-meme', { 
+    meme, 
+    csrfToken: req.csrfToken(), 
+  });
 }));
 
 router.post('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
   asyncHandler(async (req, res) => {
-    const memeId = parseInt(req.params.id, 10);
+    const memeId = parseInt(req.params.id);
     const meme = await db.Meme.findByPk(memeId);
+
+    checkPermissions(meme, res.locals.user);
+
     await meme.destroy();
-    res.redirect("/");
+    res.redirect(`/`);
   }));
 
 module.exports = router;
