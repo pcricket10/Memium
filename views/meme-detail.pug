@@ -1,12 +1,13 @@
 extends layout
-append head
-    link(rel="stylesheet" href="/stylesheets/meme-detail.css")
+
 block content
-    div
-        h1 #{meme.name}
-        img(class='memeImg' src=meme.meme_url)
-        div(class='like')
-            form(action=`/meme/like/${meme}` method='post')
-                input(type='hidden' name='_csrf' value=csrfToken)
-                button(class='likeButton' type='submit') Like Meme
-                button(class='likeButton' type='submit') disLike Meme
+    h1 #{meme.name}
+    img(src=meme.meme_url)
+    div(class='delete')
+        a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
+    div(class='like')
+        button
+            a(class='likeButton' href=`/meme/${meme.id}/toggleLike` role='button') Like Meme
+    //- div(class='like')
+    //-     button
+    //-         a(class='dislikeButton' href=`/meme/${meme.id}/toggleLike` role='button') Disike Meme

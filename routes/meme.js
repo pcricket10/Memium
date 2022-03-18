@@ -45,14 +45,14 @@ router.post('/meme/create', requireAuth, csrfProtection, asyncHandler(async (req
 
 }));
 
-router.post('/meme/:id/like'), (req, res) => {
-  console.log('like-----------------!!!!!!!!!!!!!!!!!!')
-};
+// router.post('/meme/:id/like'), asyncHandler(req, res) => {
+//   console.log('like-----------------!!!!!!!!!!!!!!!!!!')
+// };
 
 
-router.post('/meme/:id/dislike'), (req, res) => {
-  console.log('dislike-----------------!!!!!!!!!!!!!!!!!!')
-};
+// router.post('/meme/:id/dislike'), asynchandler(req, res) => {
+//   console.log('dislike-----------------!!!!!!!!!!!!!!!!!!')
+// };
 
 router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
   const memeId = parseInt(req.params.id);

@@ -33,18 +33,29 @@ const { requireAuth } = require('../auth');
 //         csrfToken: req.csrfToken(),
 //       });
 //     }
-
 //   }));
 
-router.post('/meme/:id(\\d+)/like/like'), asyncHandler(async (req, res) => {
+router.patch('/meme/:id(\\d+)/toggleLike'), asyncHandler(async (req, res) => {
     console.log('like-----------------!!!!!!!!!!!!!!!!!!')
+    const { userId } = req.session.auth;
+    const { memeId } = parseInt(req.params.id);
+    const { liked } = req.body
+
+    const meme = db.liked.build({
+        user_id: userId,
+        memeId: memeId,
+        liked: liked
+    });
+
+    await meme.save();
+    if (meme) {
+        res.json({ msg: "Meme liked!!!" });
+    }
+    else {
+        res.json({ msg: "Meh Meme" });
+    }
+
 });
-
-
-router.post('/meme/:id(\\d+)/like/dislike'), asyncHandler(async (req, res) => {
-    console.log('dislike-----------------!!!!!!!!!!!!!!!!!!')
-});
-
 
 
 
