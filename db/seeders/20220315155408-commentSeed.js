@@ -11,31 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Comments', [
-      {
-        user_id: 1,
-        content: "This meme SUX",
-        meme_id: 3,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        user_id: 2,
-        content: "first!",
-        meme_id: 1,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        user_id: 1,
-        content: "second!",
-        meme_id: 1,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-
-
-    ], {});
+    // await queryInterface.bulkInsert('Comments', {});
 
   },
 
@@ -46,6 +22,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Comments', null, {});
+    // await queryInterface.bulkDelete('Comments', null, {});
   }
 };
