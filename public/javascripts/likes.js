@@ -11,8 +11,14 @@ likeButtonClick.addEventListener("click", async (event) => {
     // const something = document.getElementsByClassName('likeButtonClass')[0];
     // const memeId = event.target.split('-')[1];
     // console.log(memeId);
+    // const likeFetch = await fetch(`/meme/${memeId}`, {
+    //     method: 'PATCH',
+    //     body: JSON.stringify({}),
+    //     headers: { 'Content-Type': 'application/json' }
+    // })
+
     const likeFetch = await fetch(`/meme/${memeId}`, {
-        method: 'PATCH',
+        method: 'POST',
         body: JSON.stringify({}),
         headers: { 'Content-Type': 'application/json' }
     })
