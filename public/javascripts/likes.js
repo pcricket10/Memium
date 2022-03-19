@@ -1,8 +1,11 @@
 
-const likeButtonClick = document.getElementById(`likeButton`);
+const likeButton = document.getElementById(`likeButton`);
 
 
-likeButtonClick.addEventListener("click", async (event) => {
+likeButton.addEventListener("click", async (event) => {
+    if (likeButton.innerText === 'Like Meme') likeButton.innerText = 'Unlike Meme'
+    else (likeButton.innerText = 'Like Meme')
+
     const url = window.location.href;
     const strs = url.split('/');
     const memeId = strs.at(-1)
