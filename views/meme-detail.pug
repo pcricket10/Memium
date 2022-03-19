@@ -1,7 +1,13 @@
 extends layout
 
 block content
+    script(src="/javascripts/likes.js" type="module")
     h1 #{meme.name}
     img(src=meme.meme_url)
     div(class='delete')
         a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
+    div(class='like')
+        button(class = 'likeButtonClass' id=`likeButton`) Like Meme
+    //- div(class='like')
+    //-     button
+    //-         a(class='dislikeButton' href=`/meme/${meme.id}/toggleLike` role='button') Disike Meme
