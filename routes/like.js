@@ -41,24 +41,30 @@ const { requireAuth } = require('../auth');
 //     }
 //   }));
 
-router.patch('/meme/:id(\\d+/upLike)', asyncHandler(async (req, res) => {
+router.patch('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
     console.log('like-----------------!!!!!!!!!!!!!!!!!!')
     const { userId } = req.session.auth;
-    const { memeId } = parseInt(req.params.id);
-    const { liked } = req.body
+    const  memeId  = parseInt(req.params.id);
+    // const { liked } = req.body
+    // const url = window.location.href;
+    // const strs = url.split('/');
+    // const memeId = strs.at(-1)
+    console.log(memeId)
 
-    const meme = db.liked.build({
-        user_id: userId,
-        memeId: memeId,
-        liked: liked
-    });
+    // console.log(memeId);
 
-    await meme.save();
-    if (meme) {
-        res.json({ msg: "Meme liked!!!" });
-    } else {
-        res.json({ msg: "Meh Meme" });
-    }
+    // const meme = db.liked.build({
+    //     user_id: userId,
+    //     memeId: memeId,
+    //     liked: liked
+    // });
+
+    // await meme.save();
+    // if (meme) {
+    //     res.json({ msg: "Meme liked!!!" });
+    // } else {
+    //     res.json({ msg: "Meh Meme" });
+    // }
 
 }));
 
