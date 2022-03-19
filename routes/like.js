@@ -32,12 +32,11 @@ router.post('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
     });
     //if exists, delete entry
     if (likeExists) {
-
         await likeExists.destroy()
+        res.send()
     }
     else {
         //doesn't exist, creates entry
-
         const like = db.Like.build({
             user_id,
             meme_id,
@@ -47,6 +46,7 @@ router.post('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
         const validatorErrors = validationResult(req);
         if (validatorErrors.isEmpty()) {
             await like.save()
+            res.send()
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('create-meme', {
@@ -57,10 +57,6 @@ router.post('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
             });
         }
     }
-
-
-
-
 
 }));
 
