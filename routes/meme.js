@@ -64,26 +64,48 @@ router.post('/meme/create', requireAuth, csrfProtection, asyncHandler(async (req
 // };
 
 router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
-  const memeId = parseInt(req.params.id);
-  const meme = await db.Meme.findByPk(memeId);
-  res.render('meme-detail', { meme });
+  const meme_id = parseInt(req.params.id);
+
+  const meme = await db.Meme.findByPk(meme_id);
+  let isLiked;
+
+  if (req.session.auth) {
+    const user_id = req.session.auth.userId;
+    isLiked = await db.Like.findOne({
+      where: {
+        user_id,
+        meme_id
+      }
+    });
+  }
+  let like = false;
+  if (isLiked) like = true
+
+
+
+
+
+
+
+
+  res.render('meme-detail', { meme, like });
 }));
 
 router.get('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
-asyncHandler(async(req, res) => {
-  const memeId = parseInt(req.params.id);
-  const meme = await db.Meme.findByPk(memeId);
-  checkPermissions(meme, res.locals.user);
-  res.render('delete-meme', { 
-    meme, 
-    csrfToken: req.csrfToken(), 
-  });
-}));
+  asyncHandler(async (req, res) => {
+    const meme_id = parseInt(req.params.id);
+    const meme = await db.Meme.findByPk(meme_id);
+    checkPermissions(meme, res.locals.user);
+    res.render('delete-meme', {
+      meme,
+      csrfToken: req.csrfToken(),
+    });
+  }));
 
 router.post('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
   asyncHandler(async (req, res) => {
-    const memeId = parseInt(req.params.id);
-    const meme = await db.Meme.findByPk(memeId);
+    const meme_id = parseInt(req.params.id);
+    const meme = await db.Meme.findByPk(meme_id);
 
     checkPermissions(meme, res.locals.user);
 

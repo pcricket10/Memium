@@ -1,13 +1,19 @@
 extends layout
-
-block content
+append head
+    link(rel="stylesheet" href="/stylesheets/meme-detail.css")
     script(src="/javascripts/likes.js" type="module")
+block content
+
     h1 #{meme.name}
-    img(src=meme.meme_url)
+    img(class ='memeImg' src=meme.meme_url)
     div(class='delete')
         a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
     div(class='like')
-        button(class = 'likeButtonClass' id=`likeButton`) Like Meme
+        if like
+            button(class = 'likeButtonClass' id=`likeButton`) Unlike Meme
+        else
+            button(class = 'likeButtonClass' id=`likeButton`) Like Meme
+
     //- div(class='like')
     //-     button
     //-         a(class='dislikeButton' href=`/meme/${meme.id}/toggleLike` role='button') Disike Meme
