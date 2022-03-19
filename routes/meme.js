@@ -78,17 +78,17 @@ router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
       }
     });
   }
+  let counter = 0;
+  const count = await db.Like.count({
+    where: { meme_id }
+  }).then(count => counter = count)
+
+
   let like = false;
-  if (isLiked) like = true
+  if (isLiked) like = true;
 
+  res.render('meme-detail', { meme, like, counter });
 
-
-
-
-
-
-
-  res.render('meme-detail', { meme, like });
 }));
 
 router.get('/meme/delete/:id(\\d+)', csrfProtection, requireAuth,
