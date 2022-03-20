@@ -54,23 +54,19 @@ router.post('/meme/create', requireAuth, csrfProtection, asyncHandler(async (req
 
 }));
 
-// router.post('/meme/:id/like'), asyncHandler(req, res) => {
-//   console.log('like-----------------!!!!!!!!!!!!!!!!!!')
-// };
-
-
-// router.post('/meme/:id/dislike'), asynchandler(req, res) => {
-//   console.log('dislike-----------------!!!!!!!!!!!!!!!!!!')
-// };
-
 router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
   const meme_id = parseInt(req.params.id);
-
+  const user_id = req.session.auth.userId;
   const meme = await db.Meme.findByPk(meme_id);
+
+  let authorized = false
   let isLiked;
 
-  if (req.session.auth) {
-    const user_id = req.session.auth.userId;
+  if (meme.user_id === user_id) {
+    authorized = true
+  }
+
+  if (authorized) {
     isLiked = await db.Like.findOne({
       where: {
         user_id,
@@ -83,11 +79,10 @@ router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
     where: { meme_id }
   }).then(count => counter = count)
 
-
   let like = false;
   if (isLiked) like = true;
 
-  res.render('meme-detail', { meme, like, counter });
+  res.render('meme-detail', { meme, like, counter, authorized });
 
 }));
 

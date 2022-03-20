@@ -6,8 +6,9 @@ block content
 
     h1 #{meme.name}
     img(class ='memeImg' src=meme.meme_url)
-    div(class='delete')
-        a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
+    if authorized
+        div(class='delete')
+            a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
     div(class='like')
         if like
             button(class = 'likeButtonClass' id=`likeButton`) Unlike Meme
