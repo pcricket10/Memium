@@ -6,5 +6,5 @@ block content
     div
         form(action=`/meme/delete/${meme.id}` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            button(class='deleteButton' type='submit') Delete Meme
+            button(class='deleteButton btn-global' type='submit') Delete Meme
             a(class='deleteButton1' href=`/meme/${meme.id}` role='button') Cancel
