@@ -129,3 +129,15 @@ a {
   transform: translateY(2px);
   font-size: 20px;
 }
+
+.delete-form {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#delete-form-id{
+  margin-top: 150px;
+  font-size: 20px;
+}

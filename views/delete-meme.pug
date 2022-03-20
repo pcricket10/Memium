@@ -1,10 +1,10 @@
 extends layout.pug
 
 block content
-    div(class='delete')
+    div(class='delete delete-form' id='delete-form-id')
         p Do you really want to delete this meme?
-    div
+    div(class='delete-form')
         form(action=`/meme/delete/${meme.id}` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
             button(class='deleteButton btn-global' type='submit') Delete Meme
-            a(class='deleteButton1' href=`/meme/${meme.id}` role='button') Cancel
+            a(class='deleteButton1 btn-global' href=`/meme/${meme.id}` role='button') Cancel
