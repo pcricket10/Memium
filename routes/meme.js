@@ -56,7 +56,8 @@ router.post('/meme/create', requireAuth, csrfProtection, asyncHandler(async (req
 
 router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
   const meme_id = parseInt(req.params.id);
-  const user_id = req.session.auth.userId;
+  const user_id = req.session.auth;
+  // const user_id = req.session.auth.userId;
   const meme = await db.Meme.findByPk(meme_id);
 
   let authorized = false

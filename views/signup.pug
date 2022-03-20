@@ -7,6 +7,12 @@ block content
   +validationErrorSummary(errors)
 
   img(id="memeium-logo" src='/images/Memium_BonW.png')
+  div(class='buttons btn-sign')
+    a(href='/login')
+    button(class='btn-global' id='already_acc') Already have an account?
+  div(class="div-demo_user")
+    a(class='demo_user' href='/login/demo')
+      button(class="btn-demo_user btn-style btn-global") Demo User
   form(class='global' action='/signup' method='post')
     h1 Create your Account
     h2 to continue to Memium
@@ -21,9 +27,3 @@ block content
     div(class='buttons')
       button(type='submit' class='btn-signup btn-style btn-global') Signup
       a(href='/' class='btn-cancel btn-global btn-style') Cancel
-    div(class='buttons')
-      p: a(href='/login')
-      button(class='btn-global') Already have an account?
-  div(class="div-demo_user")
-    a(class='demo_user' href='/login/demo')
-      button(class="btn-demo_user btn-style btn-global") Demo User

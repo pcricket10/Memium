@@ -2,8 +2,6 @@
   text-decoration: none;
   list-style-type: none;
   font-family: 'Bangers', cursive;
-
-
 }
 
 .navbar {
@@ -105,7 +103,7 @@ a {
 
 .btn-demo_user {
   margin-right: 5px;
-  margin-bottom: 250px;
+  margin-bottom: 25px;
   border: 2px solid;
   border-radius: 5px;
   font-size: 18px;
@@ -140,4 +138,11 @@ a {
 #delete-form-id{
   margin-top: 150px;
   font-size: 20px;
+}
+
+
+.btn-sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
