@@ -10,10 +10,14 @@ block content
         div(class='delete')
             a(class='deleteButton btn-global' href=`/meme/delete/${meme.id}` role='button') Delete Meme
     div(class='div-like')
-        if like
-            button(class='btn-like btn-global' id=`likeButton`) Unlike Meme
+        if authenticated
+            if like
+                button(class='btn-like btn-global' id=`likeButton`) Unlike Meme
+            else
+                button(class='btn-like btn-global' id=`likeButton`) Like Meme
         else
-            button(class='btn-like btn-global' id=`likeButton`) Like Meme
+            p Likes &nbsp;
+
         p(id="counter") #{counter}
 
     //- div(class='like')
