@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Meme.belongsTo(models.User, { foreignKey: 'user_id' })
-      Meme.hasMany(models.Like, { foreignKey: 'meme_id' })
+      Meme.hasMany(models.Like, { foreignKey: 'meme_id', onDelete: 'cascade', hooks: true })
+      Meme.hasMany(models.Comment, { foreignKey: 'meme_id', onDelete: 'cascade', hooks: true })
     }
   }
   Meme.init({

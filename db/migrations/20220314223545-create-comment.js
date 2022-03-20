@@ -22,6 +22,7 @@ module.exports = {
       meme_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: 'cascade',
         references: {
           model: 'Memes'
         }
