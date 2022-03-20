@@ -17,9 +17,9 @@ h2{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border:1px solid #666;
+  border:1px solid black;
   border-radius: 15px;
   margin: 10px;
-  background-color: #585858;
+  background-color: #F8F8F8;
   padding-left: 35px;
 }
