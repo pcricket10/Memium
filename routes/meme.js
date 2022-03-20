@@ -56,34 +56,46 @@ router.post('/meme/create', requireAuth, csrfProtection, asyncHandler(async (req
 
 router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
   const meme_id = parseInt(req.params.id);
-  const user_id = req.session.auth;
-  // const user_id = req.session.auth.userId;
+  const user = req.session.auth;
   const meme = await db.Meme.findByPk(meme_id);
-
+  // console.log(req.session.auth, "!asdfasfasdfasdfas")
+  let authenticated = false;
   let authorized = false
-  let isLiked;
+  let like = false;
+  //checks if authenticated
+  if (req.session.auth) {
 
-  if (meme.user_id === user_id) {
-    authorized = true
-  }
+    authenticated = true
 
-  if (authorized) {
+
+    //checks if authorized
+    if (meme.user_id === user.userId) {
+      authorized = true
+
+    }
+    let isLiked;
+
+
+
     isLiked = await db.Like.findOne({
       where: {
-        user_id,
+        user_id: user.userId,
         meme_id
       }
     });
-  }
+
+    if (isLiked) like = true;
+  };
+
+  //count likes
   let counter = 0;
   const count = await db.Like.count({
     where: { meme_id }
   }).then(count => counter = count)
 
-  let like = false;
-  if (isLiked) like = true;
 
-  res.render('meme-detail', { meme, like, counter, authorized });
+
+  res.render('meme-detail', { meme, like, counter, authenticated, authorized });
 
 }));
 

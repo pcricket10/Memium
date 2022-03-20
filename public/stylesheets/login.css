@@ -46,6 +46,23 @@ input {
   margin: 5px;
 }
 
+.div-demo_user {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+
+
+.btn-demo_user {
+    margin-right: 5px;
+    margin-bottom: 250px;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0 1px #666;
+}
+
 div p {
   font-size: 13px;
 }
