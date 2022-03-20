@@ -10,5 +10,14 @@
 .deleteButton {
     color: red;
     font-size: 25px;
-    
+}
+/*
+.btn-like {
+    display: flex;
+    justify-content: center;
+} */
+
+.div-like {
+    display: flex;
+    justify-content: center;
 }

@@ -1,20 +1,25 @@
 
 h2{
-  font-family:Georgia, 'Times New Roman', Times, serif;
   text-align: center;
 }
 
 .meme-page{
-  /* width: 50%; */
   display:flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   margin:20px;
-
 }
 .meme{
   width:300px;
   padding:10px;
+  display:flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  border:1px solid black;
+  border-radius: 15px;
+  margin: 10px;
+  background-color: #F8F8F8;
+  padding-left: 35px;
 }

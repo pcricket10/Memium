@@ -8,12 +8,12 @@ block content
     img(class ='memeImg' src=meme.meme_url)
     if authorized
         div(class='delete')
-            a(class='deleteButton' href=`/meme/delete/${meme.id}` role='button') Delete Meme
-    div(class='like')
+            a(class='deleteButton btn-global' href=`/meme/delete/${meme.id}` role='button') Delete Meme
+    div(class='div-like')
         if like
-            button(class = 'likeButtonClass' id=`likeButton`) Unlike Meme
+            button(class='btn-like btn-global' id=`likeButton`) Unlike Meme
         else
-            button(class = 'likeButtonClass' id=`likeButton`) Like Meme
+            button(class='btn-like btn-global' id=`likeButton`) Like Meme
         p(id="counter") #{counter}
 
     //- div(class='like')

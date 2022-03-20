@@ -5,6 +5,10 @@ html
         title="Express Starter App"
 
         link(rel='stylesheet' href='/stylesheets/global.css')
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap' rel='stylesheet')
+        link(href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet")
 
   body
     navbar(class= 'navbar')
@@ -12,14 +16,14 @@ html
         a(class='memium-logo' href="/"): img(class='hover' id="memium-logo" src='/images/Memium_WonB_trimmed.png')
       div(class= 'navbar-right')
         a(class='create-meme navbar-create navbar-logins' href='/meme/create')
-          button(class=('btn-create')) Create Meme
+          button(class=('btn-global')) Create Meme
         if locals.authenticated
           span(class='navbar-text') Welcome #{user.first_name}!
           form(action='/logout' method='post')
-            button(class='btn-logout' type='submit') Logout
+            button(class='btn-logout btn-global' type='submit') Logout
         else
           a(class='btn-nav nav-login navbar-logins' href='/login')
-            button Login
+            button(class='btn-global') Login
           a(class='btn-nav nav-signup navbar-logins' href='/signup')
-            button(class='btn-signup') Signup
+            button(class='btn-signup btn-global') Signup
     block content
