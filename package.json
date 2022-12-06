@@ -10,24 +10,24 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-session-sequelize": "^7.1.5",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "~1.4.6",
     "csurf": "^1.11.0",
-    "debug": "~2.6.9",
+    "debug": "~4.3.4",
     "express": "^4.18.2",
-    "express-session": "^1.17.2",
-    "express-validator": "^6.14.0",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "http-errors": "~2.0.0",
+    "morgan": "~1.10.0",
     "per-env": "^1.0.2",
-    "pg": "^8.7.3",
+    "pg": "^8.8.0",
     "pug": "^3.0.2",
-    "sequelize": "^5.22.5",
-    "sequelize-cli": "^6.4.1",
+    "sequelize": "^6.26.0",
+    "sequelize-cli": "^6.5.2",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "dotenv-cli": "^4.0.0",
-    "nodemon": "^2.0.6"
+    "dotenv": "^16.0.3",
+    "dotenv-cli": "^6.0.0",
+    "nodemon": "^2.0.20"
   }
 }
