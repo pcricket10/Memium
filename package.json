@@ -6,8 +6,7 @@
     "start": "per-env",
     "start:development": "nodemon -r dotenv/config ./bin/www",
     "start:production": "node ./bin/www",
-    "build" : "node psql-setup-script.js",
-    "sequelize" : "sequelize"
+    "build" : "node psql-setup-script.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
