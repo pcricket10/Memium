@@ -10,8 +10,6 @@ router.post('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
     //finds current user and meme id
     const user_id = req.session.auth.userId;
     const meme_id = parseInt(req.params.id);
-
-    console.log(user_id, meme_id)
     //checks if like from the current user and current meme exists
     const likeExists = await db.Like.findOne({
         where: {

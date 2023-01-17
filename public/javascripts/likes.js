@@ -5,7 +5,6 @@ const counter = document.getElementById('counter')
 
 likeButton.addEventListener("click", async (event) => {
     let counterVal = parseInt(counter.innerText);
-    console.log(typeof counterVal)
     if (likeButton.innerText === 'Like Meme') {
         likeButton.innerText = 'Unlike Meme'
         counter.innerText = ++counterVal

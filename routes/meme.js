@@ -58,7 +58,6 @@ router.get('/meme/:id(\\d+)', asyncHandler(async (req, res) => {
   const meme_id = parseInt(req.params.id);
   const user = req.session.auth;
   const meme = await db.Meme.findByPk(meme_id);
-  // console.log(req.session.auth, "!asdfasfasdfasdfas")
   let authenticated = false;
   let authorized = false
   let like = false;
