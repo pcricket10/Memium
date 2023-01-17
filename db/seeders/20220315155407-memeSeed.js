@@ -15,6 +15,7 @@ module.exports = {
      * }], {});
     */
     //id, name, meme_url user_id, createdAt, updatedAt
+    options.tableName = 'Memes'
     await queryInterface.bulkInsert(options, [{
       name: 'meme war',
       meme_url: 'https://images.theconversation.com/files/177834/original/file-20170712-14488-19lw3sc.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip',
