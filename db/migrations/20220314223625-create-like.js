@@ -1,4 +1,10 @@
 'use strict';
+
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;
+}
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Likes', {
@@ -34,9 +40,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    }, options);
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Likes');
+    await queryInterface.dropTable('Likes', options);
   }
 };

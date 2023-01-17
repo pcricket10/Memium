@@ -1,5 +1,8 @@
 'use strict';
-
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA
+}
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -23,5 +26,7 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     // await queryInterface.bulkDelete('Comments', null, {});
+    options.tableName = 'Comments';
+    await queryInterface.bulkDelete(options);
   }
 };

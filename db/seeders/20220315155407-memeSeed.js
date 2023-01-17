@@ -1,5 +1,8 @@
 'use strict';
-
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA
+}
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -12,7 +15,7 @@ module.exports = {
      * }], {});
     */
     //id, name, meme_url user_id, createdAt, updatedAt
-    await queryInterface.bulkInsert('Memes', [{
+    await queryInterface.bulkInsert(options, [{
       name: 'meme war',
       meme_url: 'https://images.theconversation.com/files/177834/original/file-20170712-14488-19lw3sc.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip',
       user_id: 1,
@@ -87,6 +90,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Memes', null, {});
+    options.tableName = 'Memes';
+    await queryInterface.bulkDelete(options);
   }
 };
